@@ -6,28 +6,28 @@ import { Link } from 'react-router';
 import { fetchProducts } from '../actions/index';
 import Asset from './asset';
 
-class PostsIndex extends Component {
+class ProductsIndex extends Component {
   componentWillMount() {
     this.props.fetchProducts();
   }
-  renderPosts() {
-    return this.props.posts.map((post, index) => {
+  renderProducts() {
+    return this.props.products.map((product, index) => {
       return (
-        <section key={post.sys.id} className={`spotlight style1 orient-${index%2 ? 'right':'left'} content-align-left image-position-center onscroll-image-fade-in`}>
+        <section key={product.sys.id} className={`spotlight style1 orient-${index%2 ? 'right':'left'} content-align-left image-position-center onscroll-image-fade-in`}>
           <div className="content">
-            <h2>{post.fields.productName}</h2>
+            <h2>{product.fields.productName}</h2>
             <div className="major">
               <TextTruncate
                   line={2}
                   truncateText="…"
-                  text={post.fields.description}
+                  text={product.fields.description}
                   />
             </div>
             <br />
-            <Link to={"products/" + post.sys.id} className="button big wide smooth-scroll-middle">See this product</Link>
+            <Link to={"products/" + product.sys.id} className="button big wide smooth-scroll-middle">See this product</Link>
           </div>
           <div className="image">
-            <Asset assetId={post.fields.image[0].sys.id} />
+            <Asset assetId={product.fields.image[0].sys.id} />
           </div>
         </section>
       );
@@ -36,12 +36,12 @@ class PostsIndex extends Component {
   render() {
     return (
       <div>
-        {this.renderPosts()}
+        {this.renderProducts()}
       </div>
     );
   }
 }
 function mapStateToProps(state) {
-  return { posts: state.posts.all };
+  return { products: state.products.all };
 }
-export default connect(mapStateToProps, { fetchProducts })(PostsIndex);
+export default connect(mapStateToProps, { fetchProducts })(ProductsIndex);

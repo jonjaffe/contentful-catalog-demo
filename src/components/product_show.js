@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 import { fetchProduct } from '../actions/index';
 import Asset from './asset';
 
-class PostsShow extends Component {
+class ProductShow extends Component {
 
   componentWillMount() {
     console.log(this.props);
@@ -19,24 +19,24 @@ class PostsShow extends Component {
   }
 
   render() {
-    const { post } = this.props;
+    const { product } = this.props;
 
-    if (!post) {
+    if (!product) {
       return <div>Loading...</div>;
     }
 
     return (
       <section className="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div className="content">
-          <h1>{post.fields.productName}</h1>
-          <div className="major" dangerouslySetInnerHTML={this.renderMarkdown(post.fields.description)} />
+          <h1>{product.fields.productName}</h1>
+          <div className="major" dangerouslySetInnerHTML={this.renderMarkdown(product.fields.description)} />
           <br />
-          <div className="major" dangerouslySetInnerHTML={this.renderMarkdown(post.fields.website)} />
+          <div className="major" dangerouslySetInnerHTML={this.renderMarkdown(product.fields.website)} />
           <br />
           <Link to={"/"} className="button big wide">Back</Link>
         </div>
         <div className="image">
-          <Asset assetId={post.fields.image[0].sys.id} />
+          <Asset assetId={product.fields.image[0].sys.id} />
         </div>
       </section>
     );
@@ -44,7 +44,7 @@ class PostsShow extends Component {
 }
 
 function mapStateToProps(state) {
-  return { post: state.posts.post };
+  return { product: state.products.product };
 }
 
-export default connect(mapStateToProps, { fetchProduct })(PostsShow);
+export default connect(mapStateToProps, { fetchProduct })(ProductShow);
