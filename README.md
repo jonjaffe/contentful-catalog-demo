@@ -1,1 +1,1 @@
-###Contentful Catalog Demo####
+# Contentful Catalog Demo
