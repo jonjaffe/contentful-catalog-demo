@@ -10,7 +10,7 @@ class ProductShow extends Component {
 
   componentWillMount() {
     console.log(this.props);
-    this.props.fetchProduct(this.props.params.id);
+    this.props.fetchProduct(this.props.location.state.id);
   }
   renderMarkdown(content) {
     return {

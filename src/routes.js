@@ -8,6 +8,6 @@ import ProductShow from './components/product_show';
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={ProductsIndex}/>
-    <Route path ="products/:id" component={ProductShow} />
+    <Route path ="products/:slug" component={ProductShow} />
   </Route>
 );
