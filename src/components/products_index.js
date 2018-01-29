@@ -24,7 +24,7 @@ class ProductsIndex extends Component {
                   />
             </div>
             <br />
-            <Link to={"products/" + product.sys.id} className="button big wide smooth-scroll-middle">See this product</Link>
+            <Link to={"products/" + product.sys.id} className="button big wide smooth-scroll-middle">See the {product.fields.productName}</Link>
           </div>
           <div className="image">
             <Asset assetId={product.fields.image[0].sys.id} />

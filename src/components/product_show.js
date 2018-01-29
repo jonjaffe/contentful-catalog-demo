@@ -28,6 +28,7 @@ class ProductShow extends Component {
     return (
       <section className="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div className="content">
+          <div className='breadcrumb'><Link to={"/"}>All Products</Link> &nbsp; > &nbsp; {product.fields.productName}</div>
           <h1>{product.fields.productName}</h1>
           <div className="major" dangerouslySetInnerHTML={this.renderMarkdown(product.fields.description)} />
           <br />
